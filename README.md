@@ -4,7 +4,7 @@
 
 <br>
 
-> ⚠ It does **NOT** actually check if the file/directory exists **on the disk**, it only checks if the given path exists in the list of paths. Useful when you have already obtained a list of files/directories and you want to check if a given path is already present in the list, e.g. when you let the user input a new filename/directory, since Windows and UNIX-like OS handle file/directory paths differently.
+> ⚠ It does **NOT** actually check if the file/directory exists **on the disk**, it only checks if the given path exists in the list of paths. Useful when you have already obtained a list of files/directories and you want to check if a given path is eligible/available to, for example, create a new file at it.
 
 <br>
 
