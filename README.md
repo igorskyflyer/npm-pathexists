@@ -7,6 +7,11 @@
 > ⚠ It does **NOT** actually check if the file/directory exists **on the disk**, it only checks if the given path exists in the list of paths. Useful when you have already obtained a list of files/directories and you want to check if a given path is eligible/available to, for example, create a new file at it.
 
 <br>
+<br>
+
+✨ Since `v.2.0.0` `pathexists` is a hybrid module that supports both CommonJS (legacy) and ES modules, thanks to [Modern Module](https://github.com/igorskyflyer/npm-modern-module).
+
+<br>
 
 ### Usage
 
@@ -19,11 +24,7 @@ npm i "@igor.dvlpr/pathexists"
 and then...
 
 ```js
-const {
-  pathExists,
-  pathExistsWindows,
-  pathExistsUnix,
-} = require('@igor.dvlpr/pathexists')
+const { pathExists, pathExistsWindows, pathExistsUnix } = require('@igor.dvlpr/pathexists')
 
 const allPaths = ['abc.js', 'etc.bak']
 const winPaths = ['D:\\', 'D:\\Temp\\a.js']
@@ -51,16 +52,8 @@ console.log(pathExistsWindows('D:\\Temp\\A.js', winPaths)) // prints true
 console.log(pathExistsUnix('D:\\Temp\\A.js', unixPaths)) // prints false
 
 // #4 - force Windows mode, custom Comparator
-console.log(
-  pathExistsWindows(
-    'Temp',
-    winPaths,
-    (entry, value) => entry.indexOf(value) > -1
-  )
-) // prints true
+console.log(pathExistsWindows('Temp', winPaths, (entry, value) => entry.indexOf(value) > -1)) // prints true
 
 // #4 - force UNIX-like mode, custom Comparator
-console.log(
-  pathExistsUnix('Temp', unixPaths, (entry, value) => entry.indexOf(value) > -1)
-) // prints true
+console.log(pathExistsUnix('Temp', unixPaths, (entry, value) => entry.indexOf(value) > -1)) // prints true
 ```
