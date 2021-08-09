@@ -1,6 +1,6 @@
-import { assert as chai } from 'chai'
-import { platform } from 'os'
-import { pathExists, pathExistsUnix, pathExistsWindows } from '../src/main.js'
+const chai = require('chai').assert
+const { platform } = require('os')
+const { pathExists, pathExistsUnix, pathExistsWindows } = require('../src/index.js')
 
 const os = platform()
 const isWindows = os === 'win32'
