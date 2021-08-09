@@ -1,5 +1,5 @@
-import { platform } from 'os'
-import { strIsIn } from '@igor.dvlpr/str-is-in'
+const { platform } = require('os')
+const { strIsIn } = require('@igor.dvlpr/str-is-in')
 
 const os = platform()
 const isWindows = os === 'win32'
@@ -52,7 +52,7 @@ function getDefaultComparator() {
  * @param {string[]} list  list of paths to check against
  * @returns {boolean}
  */
-export function pathExistsWindows(path, list) {
+function pathExistsWindows(path, list) {
   return pathExists(path, list, comparatorWindows)
 }
 
@@ -62,7 +62,7 @@ export function pathExistsWindows(path, list) {
  * @param {string[]} list  list of paths to check against
  * @returns {boolean}
  */
-export function pathExistsUnix(path, list) {
+function pathExistsUnix(path, list) {
   return pathExists(path, list, comparatorUnixLike)
 }
 
@@ -73,6 +73,12 @@ export function pathExistsUnix(path, list) {
  * @param {ComparatorCallback} [comparator] compare function to use, defaults to a function that uses full, case-insensitive match
  * @returns {boolean}
  */
-export function pathExists(path, list, comparator) {
+function pathExists(path, list, comparator) {
   return strIsIn(path, list, comparator || getDefaultComparator())
+}
+
+module.exports = {
+  pathExists,
+  pathExistsUnix,
+  pathExistsWindows,
 }
