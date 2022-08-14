@@ -1,6 +1,6 @@
 {
 	"name": "@igor.dvlpr/pathexists",
-	"version": "2.1.1",
+	"version": "2.1.2",
 	"description": "🧲 Provides ways of properly checking if a path exists inside a given array of files/directories both on Windows and UNIX-like operating systems. 🗺",
 	"engines": {
 		"node": ">=12.17"
